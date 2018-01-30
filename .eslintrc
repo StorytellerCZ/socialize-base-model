@@ -9,7 +9,9 @@
     "settings": {
       "import/resolver": { "meteor": {"extensions": [".js", ".jsx"]} }
     },
+    "plugins": ["prettier"],
     "rules": {
+        "prettier/prettier": "error",
         "import/no-extraneous-dependencies": "off",
         "import/prefer-default-export": "off",
         "import/extensions": "off",
