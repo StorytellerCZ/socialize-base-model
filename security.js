@@ -7,25 +7,26 @@ import MessageBox from 'message-box';
  * This shouldn't be a major issue as I doubt we will need to display this error
  * on the client at this point. Should be fixed though.
  * https://github.com/aldeed/meteor-message-box/issues/1
+ * TODO
 */
 if (Meteor.isServer) {
-    MessageBox.defaults({
-        messages: {
-            en: {
-                Untrusted: 'Inserts/Updates from untrusted code not supported',
-            },
-        },
-    });
+  MessageBox.defaults({
+    messages: {
+      en: {
+        Untrusted: 'Inserts/Updates from untrusted code not supported'
+      }
+    }
+  });
 }
 
 SimpleSchema.denyUntrusted = function denyUntrusted() {
-    if (this.isSet) {
-        const autoValue = this.definition.autoValue && this.definition.autoValue.call(this);
-        const defaultValue = this.definition.defaultValue;
+  if (this.isSet) {
+    const autoValue = this.definition.autoValue && this.definition.autoValue.call(this);
+    const defaultValue = this.definition.defaultValue;
 
-        if (this.value !== defaultValue && this.value !== autoValue && !this.isFromTrustedCode) {
-            return 'Untrusted';
-        }
+    if (this.value !== defaultValue && this.value !== autoValue && !this.isFromTrustedCode) {
+      return 'Untrusted';
     }
-    return undefined;
+  }
+  return undefined;
 };
