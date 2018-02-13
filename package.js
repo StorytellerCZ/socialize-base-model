@@ -2,7 +2,7 @@
 Package.describe({
   name: 'socialize:base-model',
   summary: 'A model for all other models to extend.',
-  version: '1.1.3',
+  version: '1.1.1_1',
   git: 'https://github.com/copleykj/socialize-base-model.git'
 });
 
@@ -16,7 +16,7 @@ Package.onUse(function onUse(api) {
 
   api.use(['meteor', 'mongo', 'ecmascript']);
 
-  api.use('cultofcoders:redis-oplog', { weak: true });
+  api.use('cultofcoders:redis-oplog@1.2.6', { weak: true });
 
   api.use([
     'aldeed:collection2@3.0.0',
