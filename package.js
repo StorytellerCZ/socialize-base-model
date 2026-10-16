@@ -7,8 +7,8 @@ Package.describe({
 });
 
 Npm.depends({
-    'mongodb-diff': '0.4.4',
-    'message-box': '0.2.7',
+    '@freedombase/mongodb-diff': '0.6.0',
+    'message-box': '1.0.0',
 });
 
 Package.onUse(function onUse(api) {
