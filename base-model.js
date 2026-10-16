@@ -173,6 +173,11 @@ export default (Meteor, SimpleSchema) => {
             return this;
         }
 
+        // Alias kept for code written against the Meteor 3 betas, where save() was still sync.
+        saveAsync() {
+            return this.save();
+        }
+
         async update(modifier) {
             if (this._id) {
                 await this.getCollection().updateAsync(this._id, modifier);
